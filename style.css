@@ -1,0 +1,25 @@
+*{
+	font-family: sans-serif;
+}
+
+
+body, html{
+	margin: 0;
+}
+
+#heading{
+	/* height: 100vh;
+	display: grid;
+	place-items: center; */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+
+	/*from uigradients.com*/
+	background: #ff9966; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #ff9966, #ff5e62); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ff9966, #ff5e62); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}

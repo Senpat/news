@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>bEST News</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div id="heading">
+		<h1>bEST News</h1>
+		<h2>Get News. Anytime. Anywhere.</h2>
+		<h2>(As long as you have internet connection)</h2>
+		<a href="#newspart">To the News</a>
+	</div>
+	<div id="newspart">
+		<h3>The Latest News</h3>
+		<form id="filters">
+			<p><b>b</b></p>
+			<input type="checkbox" id="entertainmentbox" name="entertainmentbox" value = "entertainmentbox">
+			<label for="entertainmentbox"><b>E</b>ntertainment</label><br>
+			<input type="checkbox" id="sportsbox" name="sportsbox" value = "sportsbox">
+			<label for="sportsbox"><b>S</b>ports</label><br>
+			<input type="checkbox" id="technologybox" name="technologybox" value = "technologybox">
+			<label for="technologybox"><b>T</b>echnology</label><br>
+			<br>
+			<input type="checkbox" id="allbox" name="allbox" value = "allbox">
+			<label for="allbox">All</label><br>
+			<input type="checkbox" id="randombox" name="randombox" value = "randombox">
+			<label for="randombox">Random</label><br>
+
+		</form>
+
+		<button onclick="refresh();">Refresh</button>
+	</div>
+
+	<script src="js/script.js"> </script>
+</body>
+</html>
