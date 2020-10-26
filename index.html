@@ -15,22 +15,22 @@
 	<div id="newspart">
 		<h3>The Latest News</h3>
 		<form id="filters">
-			<p><b>b</b></p>
-			<input type="checkbox" id="entertainmentbox" name="entertainmentbox" value = "entertainmentbox">
-			<label for="entertainmentbox"><b>E</b>ntertainment</label><br>
-			<input type="checkbox" id="sportsbox" name="sportsbox" value = "sportsbox">
-			<label for="sportsbox"><b>S</b>ports</label><br>
-			<input type="checkbox" id="technologybox" name="technologybox" value = "technologybox">
-			<label for="technologybox"><b>T</b>echnology</label><br>
-			<br>
-			<input type="checkbox" id="allbox" name="allbox" value = "allbox">
+			<b>b</b>
+			<input type="checkbox" id="entertainmentbox" name="entertainmentbox" value = "entertainmentbox" onclick="otheronclick(this.id);">
+			<label for="entertainmentbox"><b>E</b>ntertainment&nbsp</label>
+			<input type="checkbox" id="sportsbox" name="sportsbox" value = "sportsbox" onclick="otheronclick(this.id);">
+			<label for="sportsbox"><b>S</b>ports&nbsp</label>
+			<input type="checkbox" id="technologybox" name="technologybox" value = "technologybox" onclick="otheronclick(this.id);">
+			<label for="technologybox"><b>T</b>echnology&nbsp</label>
+			
+			<input type="checkbox" id="allbox" name="allbox" value = "allbox" onclick="allonclick();">
 			<label for="allbox">All</label><br>
-			<input type="checkbox" id="randombox" name="randombox" value = "randombox">
-			<label for="randombox">Random</label><br>
 
 		</form>
 
 		<button onclick="refresh();">Refresh</button>
+
+		<div id="news section"></div>
 	</div>
 
 	<script src="js/script.js"> </script>
