@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Advanced Search</title>
+	<link rel="stylesheet" href="searchstyle.css">
+</head>
+<body>
+	<div id="heading">
+        <div class="topnav">
+            <a href="index.html">Home</a>
+            <a href="top.html">Top Headlines</a>
+            <a href="search.html" class="active">Advanced Search</a>
+            <a href="about.html">About</a>
+            
+        </div>
+
+        <div id="banner">
+            <h1>Advanced Search</h1>
+            <a href="#newspart">To the News</a>
+        </div>
+	</div>
+	<div id="newspart">
+		<h3>The Latest News</h3>
+		<form id="filters">
+			<b>b</b>
+			<input type="checkbox" id="entertainmentbox" name="entertainmentbox" value = "entertainmentbox" onclick="otheronclick(this.id);">
+			<label for="entertainmentbox"><b>E</b>ntertainment&nbsp</label>
+			<input type="checkbox" id="sportsbox" name="sportsbox" value = "sportsbox" onclick="otheronclick(this.id);">
+			<label for="sportsbox"><b>S</b>ports&nbsp</label>
+			<input type="checkbox" id="technologybox" name="technologybox" value = "technologybox" onclick="otheronclick(this.id);">
+			<label for="technologybox"><b>T</b>echnology&nbsp</label>
+			
+			<input type="checkbox" id="allbox" name="allbox" value = "allbox" onclick="allonclick();">
+			<label for="allbox">All&nbsp&nbsp</label>
+
+		</form>
+
+		<button onclick="refresh();">Refresh</button>
+
+		<div id="news section"></div>
+	</div>
+
+	<script src="js/searchscript.js"> </script>
+</body>
+</html>

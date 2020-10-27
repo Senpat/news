@@ -7,21 +7,20 @@ body, html{
 	margin: 0;
 }
 
-#heading{
-	/*from uigradients.com*/
-	background: #ff9966; /* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #ff9966, #ff5e62); /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right, #ff9966, #ff5e62); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-	height: 100vh;
-}
 
+#heading{
+    /*from uigradients.com*/
+    background: #215f00;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #e4e4d9, #215f00);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #e4e4d9, #215f00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 
 #banner{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	
+	height: 30vh;
 
 }
 
