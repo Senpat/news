@@ -22,19 +22,48 @@
 	</div>
 	<div id="newspart">
 		<h3>The Latest News</h3>
-		<form id="filters">
-			<b>b</b>
-			<input type="checkbox" id="entertainmentbox" name="entertainmentbox" value = "entertainmentbox" onclick="otheronclick(this.id);">
-			<label for="entertainmentbox"><b>E</b>ntertainment&nbsp</label>
-			<input type="checkbox" id="sportsbox" name="sportsbox" value = "sportsbox" onclick="otheronclick(this.id);">
-			<label for="sportsbox"><b>S</b>ports&nbsp</label>
-			<input type="checkbox" id="technologybox" name="technologybox" value = "technologybox" onclick="otheronclick(this.id);">
-			<label for="technologybox"><b>T</b>echnology&nbsp</label>
-			
-			<input type="checkbox" id="allbox" name="allbox" value = "allbox" onclick="allonclick();">
-			<label for="allbox">All&nbsp&nbsp</label>
 
+		<form id="searchbar">
+			<label for="keywords">Keywords:</label>
+			<input type="text" id="keywords" name="keywords">
 		</form>
+
+		<div id="topicdropdown" class="dropdown">
+			<button onclick="dropdownclicked('topiccontent')" class="dropbutton">Topic</button>
+			<div id="topiccontent" class="dropdowncontent">
+				<a href="#" id="topicall" onclick="selecttopic(this.id)" class="selected">All</a>
+				<a href="#" id="topicentertainment" onclick="selecttopic(this.id)">Entertainment</a>
+				<a href="#" id="topicsports" onclick="selecttopic(this.id)">Sports</a>
+				<a href="#" id="topictechnology" onclick="selecttopic(this.id)">Technology</a>
+			</div>
+		</div>
+		<div id="langdropdown" class="dropdown">
+			<button onclick="dropdownclicked('langcontent')" class="dropbutton">Language</button>
+			<div id="langcontent" class="dropdowncontent">
+				<a href="#" id="langall" onclick="selectlang(this.id)" class="selected">All</a>
+				<a href="#" id="langen" onclick="selectlang(this.id)">English</a>
+				<a href="#" id="langzh" onclick="selectlang(this.id)">Chinese</a>
+				<a href="#" id="langes" onclick="selectlang(this.id)">Spanish</a>
+				<a href="#" id="langfr" onclick="selectlang(this.id)">French</a>
+				<a href="#" id="langar" onclick="selectlang(this.id)">Arabic</a>
+				<a href="#" id="langru" onclick="selectlang(this.id)">Russian</a>
+				<a href="#" id="langpt" onclick="selectlang(this.id)">Portuguese</a>
+				<a href="#" id="langde" onclick="selectlang(this.id)">German</a>
+				<a href="#" id="langit" onclick="selectlang(this.id)">Italian</a>
+				<a href="#" id="langnl" onclick="selectlang(this.id)">Dutch</a>
+				<a href="#" id="langhe" onclick="selectlang(this.id)">Hebrew</a>
+				<a href="#" id="langno" onclick="selectlang(this.id)">Norwegian</a>
+				<a href="#" id="langse" onclick="selectlang(this.id)">Northern Sami</a>
+			</div>
+		</div>
+		<div id="sortdropdown" class="dropdown">
+			<button onclick="dropdownclicked('sortcontent')" class="dropbutton">Sort By</button>
+			<div id="sortcontent" class="dropdowncontent">
+				<a href="#" id="sortpopularity" onclick="selectlang(this.id)" class="selected">Popularity</a>
+				<a href="#" id="sortrelevancy" onclick="selectlang(this.id)">Relevancy</a>
+				<a href="#" id="sortpublishedat" onclick="selectlang(this.id)">Publish Date</a>
+			</div>
+		</div>
 
 		<button onclick="refresh();">Refresh</button>
 
