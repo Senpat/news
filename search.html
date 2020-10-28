@@ -9,7 +9,7 @@
 	<div id="heading">
         <div class="topnav">
             <a href="index.html">Home</a>
-            <a href="top.html">Top Headlines</a>
+            <!--<a href="top.html">Top Headlines</a>-->
             <a href="search.html" class="active">Advanced Search</a>
             <a href="about.html">About</a>
             
@@ -37,31 +37,19 @@
 				<a href="#" id="topictechnology" onclick="selecttopic(this.id)">Technology</a>
 			</div>
 		</div>
-		<div id="langdropdown" class="dropdown">
-			<button onclick="dropdownclicked('langcontent')" class="dropbutton">Language</button>
-			<div id="langcontent" class="dropdowncontent">
-				<a href="#" id="langall" onclick="selectlang(this.id)" class="selected">All</a>
-				<a href="#" id="langen" onclick="selectlang(this.id)">English</a>
-				<a href="#" id="langzh" onclick="selectlang(this.id)">Chinese</a>
-				<a href="#" id="langes" onclick="selectlang(this.id)">Spanish</a>
-				<a href="#" id="langfr" onclick="selectlang(this.id)">French</a>
-				<a href="#" id="langar" onclick="selectlang(this.id)">Arabic</a>
-				<a href="#" id="langru" onclick="selectlang(this.id)">Russian</a>
-				<a href="#" id="langpt" onclick="selectlang(this.id)">Portuguese</a>
-				<a href="#" id="langde" onclick="selectlang(this.id)">German</a>
-				<a href="#" id="langit" onclick="selectlang(this.id)">Italian</a>
-				<a href="#" id="langnl" onclick="selectlang(this.id)">Dutch</a>
-				<a href="#" id="langhe" onclick="selectlang(this.id)">Hebrew</a>
-				<a href="#" id="langno" onclick="selectlang(this.id)">Norwegian</a>
-				<a href="#" id="langse" onclick="selectlang(this.id)">Northern Sami</a>
+		<div id="countrydropdown" class="dropdown">
+			<button onclick="dropdownclicked('countrycontent')" class="dropbutton">Country</button>
+			<div id="countrycontent" class="dropdowncontent">
+				<a href="#" id="countryall" onclick="selectcountry(this.id)" class="selected">All</a>
+
 			</div>
 		</div>
 		<div id="sortdropdown" class="dropdown">
 			<button onclick="dropdownclicked('sortcontent')" class="dropbutton">Sort By</button>
 			<div id="sortcontent" class="dropdowncontent">
-				<a href="#" id="sortpopularity" onclick="selectlang(this.id)" class="selected">Popularity</a>
-				<a href="#" id="sortrelevancy" onclick="selectlang(this.id)">Relevancy</a>
-				<a href="#" id="sortpublishedat" onclick="selectlang(this.id)">Publish Date</a>
+				<a href="#" id="sortpopularity" onclick="selectsort(this.id)" class="selected">Popularity</a>
+				<a href="#" id="sortrelevancy" onclick="selectsort(this.id)">Relevancy</a>
+				<a href="#" id="sortpublishedat" onclick="selectsort(this.id)">Publish Date</a>
 			</div>
 		</div>
 

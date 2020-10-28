@@ -1,4 +1,4 @@
-
+const APIKEY = "78b9d599c4f94f8fa3afb1a5458928d6";
 
 let categories = new Set(["entertainment","sports","technology"]);
 
@@ -16,7 +16,7 @@ function makeentry(article){
 }
 
 async function refresh(event){
-	let sourcesurl = 'https://newsapi.org/v2/sources?apiKey=c38d6166558c48afb790593c8526d39b';
+	let sourcesurl = 'https://newsapi.org/v2/sources?apiKey=' + APIKEY;
 	
 	let sourcesreq = new Request(sourcesurl);
 	let sourcesres = await fetch(sourcesreq);
@@ -39,7 +39,7 @@ async function refresh(event){
 		}
 	});
 
-	let topurl = 'https://newsapi.org/v2/top-headlines?language=en&apiKey=c38d6166558c48afb790593c8526d39b';
+	let topurl = 'https://newsapi.org/v2/top-headlines?language=en&apiKey=' + APIKEY;
 
 	let topreq = new Request(topurl);
 	let topres = await fetch(topreq);

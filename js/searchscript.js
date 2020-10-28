@@ -1,3 +1,5 @@
+const APIKEY = "78b9d599c4f94f8fa3afb1a5458928d6";
+
 
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
@@ -28,12 +30,26 @@ function selecttopic(selectedid){
     }
 }
 
-let selectedidlang="langall";
-function selectlang(selectedid){
+//Makes the list of countries
+const idtocountry = {"us":"USA","ae":"","ar":"","at":"","au":"","be":"","bg":"","br":"","ca":"","ch":"","cn":"","co":"","cu":"",
+"cz":"","de":"","eg":"","fr":"","gb":"","gr":"","hk":"","hu":"","id":"","ie":"","il":"","in":"","it":"","jp":"",
+"kr":"","lt":"","lv":"","ma":"","mx":"","my":"","ng":"","nl":"","no":"","nz":"","ph":"","pl":"","pt":"",
+"ro":"","rs":"","ru":"","sa":"","se":"","sg":"","si":"","sk":"","th":"","tr":"","tw":"","ua":"","ve":"","za":""
+}
+function makecountrydropdown(dropdownid){
+    for(const [isocode,country] of Object.entries(idtocountry)){
+        document.getElementById(dropdownid).innerHTML += `<a href='#' id='country${isocode}' onclick='selectcountry(this.id)'>${isocode}</a>`
+    }
+}
+
+makecountrydropdown("countrycontent");
+
+let selectedidcountry="countryall";
+function selectcountry(selectedid){
     document.getElementById(selectedid).classList.add("selected");
-    if(selectedid !== selectedidlang){
-        document.getElementById(selectedidlang).classList.remove("selected");
-        selectedidlang=selectedid;
+    if(selectedid !== selectedidcountry){
+        document.getElementById(selectedidcountry).classList.remove("selected");
+        selectedidcountry=selectedid;
     }
 }
 
@@ -63,29 +79,29 @@ function makeentry(article){
 
 async function refresh(event){
     //build everything url with parameters
-	let urlstart = 'https://newsapi.org/v2/everything?';
+	let urlstart = 'https://newsapi.org/v2/top-headlines?';
     let urlq = "";
     let keywords = document.getElementById("keywords").value.trim();
     if(keywords.length > 0){
         urlq = "q=" + keywords + "&";
         console.log("Keywords: " + keywords);
     }
-    /*
+    
     let urltopic = "";
     if(selectedidtopic !== "topicall"){
         urltopic = "category=" + selectedidtopic.substring(5) + "&";
-    }*/
-    let urllang = "";
-    if(selectedidlang !== "langall"){
-        urllang = "language=" + selectedidlang.substring(4) + "&";
-        console.log("Langauge: " + selectedidlang.substring(4));
+    }
+    let urlcountry = "";
+    if(selectedidcountry !== "countryall"){
+        urllang = "country=" + selectedidcountry.substring(7) + "&";
+        console.log("Country: " + selectedidcountry.substring(7));
     }
     let urlsort = "sortBy=" + selectedidsort.substring(4) + "&";
     console.log("Sort by: " + selectedidsort.substring(4));
 
-    let urlend = 'apiKey=c38d6166558c48afb790593c8526d39b';
+    let urlend = 'apiKey=' + APIKEY;
 
-    let URL = urlstart + urlq + urllang + urlsort + urlend;
+    let URL = urlstart + urlq + urltopic + urlcountry + urlsort + urlend;
 
 	let req = new Request(URL);
 	let res = await fetch(req);
