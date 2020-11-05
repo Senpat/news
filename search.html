@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<title>Advanced Search</title>
 	<link rel="stylesheet" href="searchstyle.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 </head>
 <body>
 	<div id="heading">
@@ -31,8 +32,7 @@
 		<div id="topicdropdown" class="dropdown">
 			<button onclick="dropdownclicked('topiccontent')" class="dropbutton">Topic</button>
 			<div id="topiccontent" class="dropdowncontent">
-				<a href="#" id="topicall" onclick="selecttopic(this.id)" class="selected">All</a>
-				<a href="#" id="topicentertainment" onclick="selecttopic(this.id)">Entertainment</a>
+				<a href="#" id="topicentertainment" onclick="selecttopic(this.id)" class="selected">Entertainment</a>
 				<a href="#" id="topicsports" onclick="selecttopic(this.id)">Sports</a>
 				<a href="#" id="topictechnology" onclick="selecttopic(this.id)">Technology</a>
 			</div>
@@ -53,9 +53,22 @@
 			</div>
 		</div>
 
-		<button onclick="refresh();">Refresh</button>
+		<button onclick="refresh(1);" class="refresh">Refresh</button>
 
-		<div id="news section"></div>
+		
+		<div id="news section">
+			<!--
+			<div class='entry'>
+				<div class='entryimage'>
+					<img src='https://www.gannett-cdn.com/presto/2020/10/25/PDTF/5a952c93-a014-420f-a52a-0f8d465347c7-AP_Lions_Falcons_Football_GA12.jpg?width=1320&height=1030&fit=crop&format=pjpg&auto=webp'>
+				</div>
+				<div class='entrytext'>
+					<a href='old.reddit.com' target=_blank id='entrytitle'>Lions Win!!!!</a>
+					<p>Date</p>
+				</div>
+				
+			</div>-->
+		</div>
 	</div>
 
 	<script src="js/searchscript.js"> </script>

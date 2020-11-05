@@ -21,7 +21,7 @@ window.onclick = function(event) {
     }
 }
 
-let selectedidtopic="topicall";
+let selectedidtopic="topicentertainment";
 function selecttopic(selectedid){
     document.getElementById(selectedid).classList.add("selected");
     if(selectedid !== selectedidtopic){
@@ -66,18 +66,30 @@ let categories = new Set(["entertainment","sports","technology"]);
 
 
 function makeentry(article){
-	return `<div id='entry'>
-			<div id='entrytext'>
-				<a href='${article.url}' target=_blank id='entrytitle'>${article.title}</a>
-				<p id='date'>${article.publishedAt}</p>
-			</div>
-			<div id='entryimage'>
-				<img src='${article.urlToImage}'>
-			</div>
-		</div>`;
+    return `<div class='entry'>
+        <div class='entryimage'>
+            <img src='${article.urlToImage}'>
+        </div>
+        <div class='entrytext'>
+            <a href='${article.url}' target=_blank id='entrytitle'>${article.title}</a>
+            <p>${moment(article.publishedAt).fromNow()}</p>
+        </div>
+        
+    </div>`
 }
 
-async function refresh(event){
+async function refresh(page, obj){
+    if(page == 1){
+        document.getElementById("news section").innerHTML = "";
+    } else {
+        //remove view more buttons
+        // document.getElementsByClassName("viewmore").forEach(function(button){
+        //     button.css("display", 'none');
+        // });
+        obj.style.display='none';
+    }
+    
+
     //build everything url with parameters
 	let urlstart = 'https://newsapi.org/v2/top-headlines?';
     let urlq = "";
@@ -90,18 +102,22 @@ async function refresh(event){
     let urltopic = "";
     if(selectedidtopic !== "topicall"){
         urltopic = "category=" + selectedidtopic.substring(5) + "&";
+    } else {
+        urltopic = "category=sports,entertainment,technology&";
     }
     let urlcountry = "";
     if(selectedidcountry !== "countryall"){
-        urllang = "country=" + selectedidcountry.substring(7) + "&";
+        urlcountry = "country=" + selectedidcountry.substring(7) + "&";
         console.log("Country: " + selectedidcountry.substring(7));
     }
     let urlsort = "sortBy=" + selectedidsort.substring(4) + "&";
     console.log("Sort by: " + selectedidsort.substring(4));
 
+    let urlpage = "page=" + page + "&";
+
     let urlend = 'apiKey=' + APIKEY;
 
-    let URL = urlstart + urlq + urltopic + urlcountry + urlsort + urlend;
+    let URL = urlstart + urlq + urltopic + urlcountry + urlsort + urlpage + urlend;
 
 	let req = new Request(URL);
 	let res = await fetch(req);
@@ -120,6 +136,10 @@ async function refresh(event){
 		newshtml = "No News Found";
 	}
 
-	document.getElementById("news section").innerHTML = newshtml;
+    document.getElementById("news section").innerHTML += newshtml;
+    
+    if(page * 20 < data.totalResults){
+        document.getElementById("news section").innerHTML += `<button class='viewmore' onclick='refresh(${page+1}, this)'>View More</button>`;
+    }
 }
 

@@ -9,10 +9,16 @@ body, html{
 
 #heading{
 	/*from uigradients.com*/
-	background: #ff9966; /* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #ff9966, #ff5e62); /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right, #ff9966, #ff5e62); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	height: 100vh;
+
+	background: #f12711;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #f5af19, #f12711); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+b{
+	font-size: 32px;
 }
 
 
@@ -26,7 +32,7 @@ body, html{
 }
 
 .topnav{
-	background-color: #6495ED;
+	background-color: black;
 	overflow: hidden;
 }
 
@@ -36,8 +42,9 @@ body, html{
 	padding: 14px 16px;
 	font-size: 17px;
 	text-decoration: none;
+	color: white;
 }
 
 .topnav a.active{
-	background-color: #00008B;
+	background-color: orange;
 }
