@@ -128,6 +128,7 @@ async function refresh(page, obj){
 
 	data.articles.forEach(function(article){
         console.log(article.title);
+        console.log(article.content);
         newshtml += makeentry(article);
 		
 	});
