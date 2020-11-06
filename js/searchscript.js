@@ -5,16 +5,25 @@ const APIKEY = "78b9d599c4f94f8fa3afb1a5458928d6";
 toggle between hiding and showing the dropdown content */
 function dropdownclicked(showid) {
     document.getElementById(showid).classList.toggle("show");
+
+    //close other dropdowns
+    var dropdowns = document.getElementsByClassName("dropdowncontent");
+    for(var k = 0; k < dropdowns.length; k++){
+        var openDropdown = dropdowns[k];
+        if(openDropdown.id !== showid && openDropdown.classList.contains('show')){
+            openDropdown.classList.remove('show')
+        }
+    }
 }
 
 // Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
-    if (!event.target.matches('.dropbutton')) {
+window.onclick = function(event){
+    if (!event.target.matches('.dropbutton')){
         var dropdowns = document.getElementsByClassName("dropdowncontent");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
+        
+        for (var k = 0; k < dropdowns.length; k++){
+            var openDropdown = dropdowns[k];
+            if (openDropdown.classList.contains('show')){
                 openDropdown.classList.remove('show');
             }
         }
@@ -31,14 +40,29 @@ function selecttopic(selectedid){
 }
 
 //Makes the list of countries
-const idtocountry = {"us":"USA","ae":"","ar":"","at":"","au":"","be":"","bg":"","br":"","ca":"","ch":"","cn":"","co":"","cu":"",
-"cz":"","de":"","eg":"","fr":"","gb":"","gr":"","hk":"","hu":"","id":"","ie":"","il":"","in":"","it":"","jp":"",
-"kr":"","lt":"","lv":"","ma":"","mx":"","my":"","ng":"","nl":"","no":"","nz":"","ph":"","pl":"","pt":"",
-"ro":"","rs":"","ru":"","sa":"","se":"","sg":"","si":"","sk":"","th":"","tr":"","tw":"","ua":"","ve":"","za":""
+const idtocountry = {"us":"USA","ae":"United Arab Emirates","ar":"Argentina","at":"Austria","au":"Australia","be":"Belgium","bg":"Bulgaria","br":"Brazil","ca":"Canada","ch":"Switzerland","cn":"China","co":"Colombia","cu":"Cuba",
+"cz":"Czechia","de":"Germany","eg":"Egypt","fr":"France","gb":"United Kingdom","gr":"Greece","hk":"Hong Kong","hu":"Hungary","id":"Indonesia","ie":"Ireland","il":"Israel","in":"India","it":"Italy","jp":"Japan",
+"kr":"Korea","lt":"Lithuania","lv":"Latvia","ma":"Morocco","mx":"Mexico","my":"Malaysia","ng":"Nigeria","nl":"Netherlands","no":"Norway","nz":"New Zealand","ph":"Philippines","pl":"Poland","pt":"Portugal",
+"ro":"Romania","rs":"Serbia","ru":"Russia","sa":"Saudi Arabia","se":"Sweden","sg":"Singapore","si":"Slovenia","sk":"Slovakia","th":"Thailand","tr":"Turkey","tw":"Taiwan","ua":"Ukraine","ve":"Venezuela","za":"South Africa"
 }
+//sorts the countries
+
+var sortable = [];
+for(const [id,countryname] of Object.entries(idtocountry)){
+    if(id !== "us"){
+        sortable.push([id,countryname]);
+    }
+}
+
+sortable.sort(function(a,b){
+    return a[1].localeCompare(b[1]);
+});
+
+sortable.unshift(["us","USA"]);
+
 function makecountrydropdown(dropdownid){
-    for(const [isocode,country] of Object.entries(idtocountry)){
-        document.getElementById(dropdownid).innerHTML += `<a href='#' id='country${isocode}' onclick='selectcountry(this.id)'>${isocode}</a>`
+    for(const pair of sortable){
+        document.getElementById(dropdownid).innerHTML += `<a href='#' id='country${pair[0]}' onclick='selectcountry(this.id)'>${pair[1]}</a>`
     }
 }
 
