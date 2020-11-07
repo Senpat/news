@@ -18,3 +18,4 @@ To style the news articles, I made the image take up 20% of the view height and 
 
 To show the time since the article was published, I used a JavaScript library called moment.js which allows me to format times very easily. 
 
+The about page tells users how to use the website.
