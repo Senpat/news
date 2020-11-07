@@ -113,6 +113,9 @@ async function refresh(page, obj){
         obj.style.display='none';
     }
     
+    //add loader
+    document.getElementById("news section").innerHTML += "<div class='loader'></div>";
+
 
     //build everything url with parameters
 	let urlstart = 'https://newsapi.org/v2/top-headlines?';
@@ -161,6 +164,8 @@ async function refresh(page, obj){
 		newshtml = "No News Found";
 	}
 
+    //remove loader and add content
+    document.getElementById("news section").innerHTML = document.getElementById("news section").innerHTML.slice(0,-26);
     document.getElementById("news section").innerHTML += newshtml;
     
     if(page * 20 < data.totalResults){
