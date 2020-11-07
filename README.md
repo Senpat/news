@@ -16,5 +16,5 @@ The View More button is made by adding a button to the HTML if there are more ar
 
 To style the news articles, I made the image take up 20% of the view height and 20% of the view width. The title and time since the article was published goes to the right of the image, which I accomplished with using flex display.
 
-To show the time since the article was published, I used a CDI called moment.js which allows me to format times very easily. 
+To show the time since the article was published, I used a JavaScript library called moment.js which allows me to format times very easily. 
 
